@@ -1,12 +1,9 @@
-FROM openjdk:21-jdk
+FROM amazoncorretto:21
 
 WORKDIR /app
 
-# Copy the JAR file
-COPY target/*.jar app.jar
+COPY target/employee-management-0.0.1-SNAPSHOT.jar app.jar
 
-# Expose port 8080 (as defined in docker properties)
 EXPOSE 8080
 
-# Run with docker profile
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java","-jar","app.jar"]
