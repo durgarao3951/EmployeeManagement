@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven3'
-        jdk 'JDK21'
+        maven 'maven3'
+        jdk 'jdk21'
     }
 
     environment {
@@ -19,7 +19,7 @@ pipeline {
             }
         }
 
-        stage('Build Maven') {
+        stage('Build maven') {
             steps {
                 dir('employee-management') {
                     sh 'mvn clean package -DskipTests'
