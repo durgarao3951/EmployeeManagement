@@ -18,7 +18,16 @@ pipeline {
                 checkout scm
             }
         }
-
+       stage('Verify Java') {
+            steps {
+                 sh '''
+                 echo "JAVA_HOME=$JAVA_HOME"
+                 which java
+                 java -version
+                 mvn -version
+                 '''
+              }
+          }
         stage('Build maven') {
             steps {
                 dir('employee-management') {
